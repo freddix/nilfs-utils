@@ -1,11 +1,11 @@
 Summary:	Tools for the NILFS filesystem
 Name:		nilfs-utils
-Version:	2.2.0
+Version:	2.2.2
 Release:	1
 License:	GPL v2
 Group:		Applications/System
-Source0:	http://www.nilfs.org/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	57480da0c9e6c35100e157b6cc87b6f8
+Source0:	http://nilfs.sourceforge.net/download/%{name}-%{version}.tar.bz2
+# Source0-md5:	17033394c30515c41c8ae08f83d1cbbe
 URL:		http://www.nilfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -41,7 +41,7 @@ Header files for NILFS.
 %setup -q
 
 %{__sed} -i 's|chown|# chowm|g' sbin/*/Makefile.am
-%{__sed} -i 's|/sbin|%{_sbindir}|g' configure.ac
+%{__sed} -i 's|\[/sbin\]|%{_sbindir}|g' configure.ac
 
 %build
 %{__libtoolize}
@@ -58,6 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -83,6 +85,5 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_libdir}/lib*.so
-%{_libdir}/lib*.la
 %{_includedir}/*.h
 
