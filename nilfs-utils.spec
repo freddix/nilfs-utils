@@ -1,11 +1,11 @@
 Summary:	Tools for the NILFS filesystem
 Name:		nilfs-utils
-Version:	2.2.2
+Version:	2.2.3
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://nilfs.sourceforge.net/download/%{name}-%{version}.tar.bz2
-# Source0-md5:	17033394c30515c41c8ae08f83d1cbbe
+# Source0-md5:	50e904e41aee0a1463b01c9d0df8ee9d
 URL:		http://www.nilfs.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
